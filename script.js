@@ -1,3 +1,4 @@
+
 var search = "chicken";
 var app_id = "2d0cdeda";
 var api_key = "5a09930cb72b211827aef4fbbdb035b5";
@@ -14,4 +15,9 @@ $.ajax({
             // $(document).ready(function () {
             //     $('.sidenav').sidenav();
             // });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {edge:'right'});
+});
 
