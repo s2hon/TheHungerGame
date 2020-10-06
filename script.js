@@ -56,9 +56,7 @@ $.ajax({
     }).then(function (response) {
       console.log(response);
       
-      // Dynamically updating HTML/CSS for Wine pairing and Recipe Goes HERE
-      var recipeDiv = $("#recipeParent2");
-      var centerDiv = $("#recipeParent");
+    
 
       var title = $("<h5>").text(response.title);
       var totalMinutes = $("<p>").text(
@@ -88,27 +86,4 @@ $.ajax({
     }).then(function (response) {
       console.log(response);
      
-
-      var title = $("<h5>").text(response.title);
-      var totalMinutes = $("<p>").text(
-        "Total Minutes: " + response.readyInMinutes + " minutes"
-      );
-      var imageEl = $("<img>").attr("src", response.image);
-      var servings = $("<p>").text("Servings: " + response.servings);
-      var ingredients = $("<div>");
-
-      var ingredientsList = $("<ul>");
-      // console.log(response.extendedIngredients[]);
-      for (i = 0; i < response.extendedIngredients.length; i++) {
-        var insListEl = $("<li>").text(
-          response.extendedIngredients[i]["name"] +
-            "," +
-            " " +
-            response.extendedIngredients[i]["amount"] +
-            " " +
-            response.extendedIngredients[i]["unit"]
-        );
-        ingredientsList.append(insListEl);
-      }
-      ingredients.append(ingredientsList);
-    
+    })
