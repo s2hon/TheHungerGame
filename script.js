@@ -60,9 +60,10 @@ function getRecipe() {
         cardContentEl.append(ingredientEl);
         recipeEl.append(cardContentEl);
         console.log(response.hits[randomIndex].recipe.ingredients[0].text);
-        
+        var forList = response.hits[randomIndex].recipe.ingredients;
+        console.log(forList);
     //     //  list and forloop for ingredients 
-        for (var i= 0; i < ingredients.list; i++){
+        for (var i= 0; i < forList.length; i++){
             var ingredientList = $("<li>");
             console.log(response.hits[randomIndex].recipe.ingredients[i].text);
             ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
