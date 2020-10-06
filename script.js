@@ -1,4 +1,5 @@
 
+
 // working on adjusting this section
 var apiKey = "&apiKey=d040ece6f23a4172add75ae72ef7d27a";
 var RecipeString = [];
@@ -87,3 +88,19 @@ $.ajax({
       console.log(response);
      
     })
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {edge:'right'});
+});
+
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
