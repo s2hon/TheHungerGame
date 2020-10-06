@@ -1,64 +1,114 @@
 
-var cardBodyEl = $(".card-content");
+// working on adjusting this section
+var apiKey = "&apiKey=d040ece6f23a4172add75ae72ef7d27a";
+var RecipeString = [];
 
-var form = new FormData();
-cardBodyEl.form.append("backgroundColor", "#ffffff");
-cardBodyEl.form.append("fontColor", "#333333");
-cardBodyEl.form.append("source", "spoonacular.com");
-cardBodyEl.form.append("backgroundImage", "background1");
-cardBodyEl.form.append("image", "The image.");
-cardBodyEl.form.append("ingredients", "2 cups of green beans");
-cardBodyEl.form.append("instructions", "cook the beans");
-cardBodyEl.form.append("mask", "ellipseMask");
-cardBodyEl.form.append("readyInMinutes", "60");
-cardBodyEl.form.append("servings", "2");
-cardBodyEl.form.append("title", "Pork tenderloin with green beans");
+  var spoonQueryURL =
+    "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
+    RecipeString + "&number=100" + apiKey;
+ 
+$.ajax({
+    url: spoonQueryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
 
-var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/visualizeRecipe",
-	"method": "POST",
-	"headers": {
-		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		"x-rapidapi-key": "SIGN-UP-FOR-KEY",
-		"content-type": "multipart/form-data"
-	},
-	"processData": false,
-	"contentType": false,
-	"mimeType": "multipart/form-data",
-	"data": form
-}
+    for (i = 0; i < response.length; i++) {
+      var newRecipeObject = {
+        id: response[i]["id"],
+        title: response[i]["title"],
+      };
+      recipesObject.push(newRecipeObject);
+    }
+    // Using randomly generated number to form ajax search to get full recipe information
+    randomRecipe.push(recipesObject[Math.floor(Math.random() * 100)]);
+    var newid = randomRecipe[0]["id"];
+    console.log(newid);
+    var ingredientsURL =
+      "https://api.spoonacular.com/recipes/" +
+      newid +
+      "/information?includeNutrition=false" +
+      $.ajax({
+    url: spoonQueryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
+    for (i = 0; i < response.length; i++) {
+      var newRecipeObject = {
+        id: response[i]["id"],
+        title: response[i]["title"],
+      };
+      recipesObject.push(newRecipeObject);
+    }
+    // Using randomly generated number to form ajax search to get full recipe information
+    randomRecipe.push(recipesObject[Math.floor(Math.random() * 100)]);
+    var newid = randomRecipe[0]["id"];
+    console.log(newid);
+    var ingredientsURL =
+      "https://api.spoonacular.com/recipes/" +
+      newid +
+      "/information?includeNutrition=false" +
+      apiKey;
+    $.ajax({
+      url: ingredientsURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+      
+      // Dynamically updating HTML/CSS for Wine pairing and Recipe Goes HERE
+      var recipeDiv = $("#recipeParent2");
+      var centerDiv = $("#recipeParent");
 
-    // for (var i = 0; i < response.list.length; i++) {
-    //     if (i % 8 === 0) {
-    //         current = response.list[i];
-    //         var date = $("<div>");
-    //         var body = $("<div class ='card-body'>");
-    //         var currentIcon = current.weather[0].icon;
-    //         var temp = $("<div>");
-    //         var icon = $("<img>");
-    //         var humidity = $("<div>");
-    //         var forecastDay = $("<div class = 'col'>");
-    //         var card = $("<div class = 'card bg-primary text-white'>");
+      var title = $("<h5>").text(response.title);
+      var totalMinutes = $("<p>").text(
+        "Total Minutes: " + response.readyInMinutes + " minutes"
+      );
+      var imageEl = $("<img>").attr("src", response.image);
+      var servings = $("<p>").text("Servings: " + response.servings);
+      var ingredients = $("<div>");
 
-    //         $("#forecast").append(forecastDay);
-    //         forecastDay.append(card);
-    //         card.append(body);
+      var ingredientsList = $("<ul>");
+      // console.log(response.extendedIngredients[]);
+      for (i = 0; i < response.extendedIngredients.length; i++) {
+        var insListEl = $("<li>").text(
+          response.extendedIngredients[i]["name"] +
+            "," +
+            " " +
+            response.extendedIngredients[i]["amount"] +
+            " " +
+            response.extendedIngredients[i]["unit"]
+        );
+        ingredientsList.append(insListEl);
+      }
+      ingredients.append(ingredientsList);;
+    $.ajax({
+      url: ingredientsURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+     
 
-    //         console.log(current);
-    //         body.append(date);
-    //         body.append(temp);
-    //         temp.text(current.main.temp + " ℉");
-    //         body.append(icon);
-    //         icon.attr("src", "http://openweathermap.org/img/w/" + currentIcon + ".png");
-    //         body.append(humidity);
-    //         humidity.text(current.main.humidity + "%");
-    //         date.text(moment(current.dt_txt).format("ll"));
+      var title = $("<h5>").text(response.title);
+      var totalMinutes = $("<p>").text(
+        "Total Minutes: " + response.readyInMinutes + " minutes"
+      );
+      var imageEl = $("<img>").attr("src", response.image);
+      var servings = $("<p>").text("Servings: " + response.servings);
+      var ingredients = $("<div>");
 
-    //     }
-
+      var ingredientsList = $("<ul>");
+      // console.log(response.extendedIngredients[]);
+      for (i = 0; i < response.extendedIngredients.length; i++) {
+        var insListEl = $("<li>").text(
+          response.extendedIngredients[i]["name"] +
+            "," +
+            " " +
+            response.extendedIngredients[i]["amount"] +
+            " " +
+            response.extendedIngredients[i]["unit"]
+        );
+        ingredientsList.append(insListEl);
+      }
+      ingredients.append(ingredientsList);
+    
