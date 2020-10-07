@@ -59,5 +59,12 @@ img{  display: block;
 .container {
     margin-left: 20px;
 }
-
-
+input {
+    padding: 0px 35px !important;
+}
+.sidenav {
+    background-color: #26a69a;
+}
+.header {
+    font-size: 30px;
+}
