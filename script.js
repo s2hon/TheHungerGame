@@ -70,9 +70,7 @@ function getRecipe() {
             ingredientEl.append(ingredientList);
             // store them to local storage
         }
-       
-    })
-
+    });
 };
 
 
@@ -80,6 +78,7 @@ function getRecipe() {
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, { edge: 'right' });
+});
 //side bar
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.sidenav');
