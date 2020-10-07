@@ -57,20 +57,32 @@ function getRecipe() {
         var cardContentEl = $("<div>");
         var ingredientEl = $("<ul>");
         cardContentEl.addClass("card-content");
+        // creating element to store health label
+        var healthLabelList = $("<div>");
+        // element to store calories
+        var caloriesEl = $("<div>");
+        caloriesEl.text(" Total Calories: " + Math.floor(response.hits[randomIndex].recipe.calories));
+         // printing health label to card
+       healthLabelList.text(response.hits[randomIndex].recipe.healthLabels);
+        cardContentEl.append(healthLabelList);
+        // print calories to card
+        cardContentEl.append(caloriesEl);
         cardContentEl.append(ingredientEl);
         recipeEl.append(cardContentEl);
-        console.log(response.hits[randomIndex].recipe.ingredients[0].text);
+
         var forList = response.hits[randomIndex].recipe.ingredients;
         console.log(forList);
-    //     //  list and forloop for ingredients 
-        for (var i= 0; i < forList.length; i++){
+        //     //  list and forloop for ingredients 
+        for (var i = 0; i < forList.length; i++) {
             var ingredientList = $("<li>");
             console.log(response.hits[randomIndex].recipe.ingredients[i].text);
             ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
-            ingredientEl.append(ingredientList);
+           ingredientEl.append(ingredientList);
             // store them to local storage
+            
         }
        
+
     })
 
 };
@@ -80,23 +92,24 @@ function getRecipe() {
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, { edge: 'right' });
+})
 //side bar
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, {edge:'right'});
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, { edge: 'right' });
 });
 // map box
-	mapboxgl.accessToken = 'pk.eyJ1IjoiamFjb2JuODgiLCJhIjoiY2tmeWRlcWl6MWx0dDJybXQ5NXRjazF2dSJ9.h9KXyaFyrcjkG9NRwU6a4A';
+mapboxgl.accessToken = 'pk.eyJ1IjoiamFjb2JuODgiLCJhIjoiY2tmeWRlcWl6MWx0dDJybXQ5NXRjazF2dSJ9.h9KXyaFyrcjkG9NRwU6a4A';
 var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: [-97.745, 30.265],
-zoom: 10
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-97.745, 30.265],
+    zoom: 10
 });
- 
+
 map.addControl(
-new MapboxGeocoder({
-accessToken: mapboxgl.accessToken,
-mapboxgl: mapboxgl
-})
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
 );
