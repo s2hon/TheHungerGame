@@ -2,12 +2,20 @@
 .mapboxgl-ctrl-geocoder {
     width: 600px!important;
 }
+/* this offsets the margin for the sidebar */
 header, main, footer {
     padding-right: 300px;
   }
-
-  @media only screen and (max-width : 992px) {
-    header, main, footer {
-      padding-right: 0;
+/* seach bar location */
+  .geocoder {
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    left: 0%;
+    
     }
-  }
+    /* store locator text */
+    .header {
+        text-align: center;
+    }
+   
