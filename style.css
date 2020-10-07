@@ -2,3 +2,6 @@
 .mapboxgl-ctrl-geocoder {
     width: 600px!important;
 }
+.card-content {
+    text-align: center;
+}
