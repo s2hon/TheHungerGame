@@ -59,9 +59,14 @@ function getRecipe() {
         cardContentEl.addClass("card-content");
         // creating element to store health label
         var healthLabelList = $("<div>");
+        // element to store calories
+        var caloriesEl = $("<div>");
+        caloriesEl.text(" Total Calories: " + Math.floor(response.hits[randomIndex].recipe.calories));
          // printing health label to card
        healthLabelList.text(response.hits[randomIndex].recipe.healthLabels);
         cardContentEl.append(healthLabelList);
+        // print calories to card
+        cardContentEl.append(caloriesEl);
         cardContentEl.append(ingredientEl);
         recipeEl.append(cardContentEl);
 
