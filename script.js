@@ -62,14 +62,24 @@ function getRecipe() {
         // element to store calories
         var caloriesEl = $("<div>");
         caloriesEl.text(" Total Calories: " + Math.floor(response.hits[randomIndex].recipe.calories));
-         // printing health label to card
-       healthLabelList.text(response.hits[randomIndex].recipe.healthLabels);
+        // printing health label to card
+        healthLabelList.text(response.hits[randomIndex].recipe.healthLabels);
         cardContentEl.append(healthLabelList);
         // print calories to card
         cardContentEl.append(caloriesEl);
+        // printing ingredient to card
         cardContentEl.append(ingredientEl);
+        // create element to go to recipe page
+        var recipebtn = $("<button>").addClass("btn recipe-button waves-effect waves-light").text("Click to View Directions!");
+
+        cardContentEl.append(recipebtn);
         recipeEl.append(cardContentEl);
 
+        $(document).on('click', '.recipe-button', function(){
+            window.open(response.hits[randomIndex].recipe.url);
+        }); 
+            
+        
         var forList = response.hits[randomIndex].recipe.ingredients;
         console.log(forList);
         //     //  list and forloop for ingredients 
@@ -77,11 +87,11 @@ function getRecipe() {
             var ingredientList = $("<li>");
             console.log(response.hits[randomIndex].recipe.ingredients[i].text);
             ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
-           ingredientEl.append(ingredientList);
+            ingredientEl.append(ingredientList);
             // store them to local storage
             var shoppingList = localStorage.setItem("ingredients", ingredientList);
         }
-       
+
 
     })
 
