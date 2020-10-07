@@ -149,20 +149,30 @@ function getRecipe() {
             ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
             ingredientEl.append(ingredientList);
             // store them to local storage
-            var shoppingList = localStorage.setItem("ingredients", ingredientList);
+           
+           //calledIngredientlist = window.localStorage.ingredientList( ,, );
+           //we need to make a variable in global area "var = calledIngredientlist"
+           // then we have access to it grab it by using "let page" line 85
+        }
+       
+            var  shoppingList = localStorage.setItem("ingredients",JSON.stringify(ingredientList[i]));
         }
 
+    )
 
     })
     
 };
 
 
+
 //right column
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, { edge: 'right' });
-})
+    })
+
+
 //side bar
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
@@ -176,7 +186,12 @@ var map = new mapboxgl.Map({
     center: [-97.739, 30.265],
     zoom: 12
 });
-
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
+);
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl
