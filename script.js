@@ -79,7 +79,7 @@ function getRecipe() {
             ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
            ingredientEl.append(ingredientList);
             // store them to local storage
-            
+            var shoppingList = localStorage.setItem("ingredients", ingredientList);
         }
        
 
