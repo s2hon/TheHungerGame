@@ -85,20 +85,14 @@ function getRecipe() {
            // then we have access to it grab it by using "let page" line 85
         }
        
-            var shoppingList = localStorage.setItem("ingredients", ingredientList);
+            var  shoppingList = localStorage.setItem("ingredients",JSON.stringify(ingredientList[i]));
         }
        
 
-    })
+    )
 
 };
 
-let page = document.body.id("#shoppingCart");
-      switch(page){
-          //the next line should access the shoppingCart documnent and implement the 
-          //commands there
-          //document.getElementById("filled-in").innerHTML = localStorage.getItem("lastname");
-      }
 
 
 //right column
@@ -106,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, { edge: 'right' });
     })
-})
+
 
 //side bar
 document.addEventListener('DOMContentLoaded', function () {

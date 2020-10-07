@@ -23,7 +23,7 @@
     
     <nav>
         <div class="nav-wrapper">
-          <a class="brand-logo">Hunger Game</a>
+          <a class="brand-logo" href="./index.html">Hunger Game</a>
            <ul id="nav-mobile" class="right hide-on-med-and-down">
               </ul>
         </div>
@@ -41,13 +41,12 @@
               <!--we can use this tags as an anchor for adding jQuery for our list-->
               <p>
                 <label>
-                  <input type="checkbox" class="filled-in" />
-                  <span>First item on your list</span>
-                </label>
-            </p>
-                
-            <!--testing area-->
-
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+              </p>
+               
+           
             </div>
 
             <!--rigth colum-->
@@ -55,7 +54,17 @@
           </div>
     </div>
     
+<script>
 
+   var shoppingIngredients = $(document).$(".material-icons right").on("click", function(){
+     //when I click this button it takes me to HTML page and I think it needs attr 
+    var shoppingCartList = JSON.parse(localStorage.getItem("ingredients"));
+    console.log(shoppingCartList)
+
+  })
+
+
+</script>
     <script src="script.js"></script>
 </body>
 </html>
