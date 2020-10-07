@@ -47,7 +47,9 @@ img{  display: block;
     border-radius: 12px;
     
 }
-
+.card-title {
+    text-align: inherit;
+}
 
     .card {
     border-style: groove;
