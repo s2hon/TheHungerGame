@@ -47,12 +47,17 @@ img{  display: block;
     border-radius: 12px;
     
 }
-
+.brand-logo {
+    margin-left: 20px;
+}
 
     .card {
     border-style: groove;
     border-radius: 12px;
 }
 
+.container {
+    margin-left: 20px;
+}
 
 
