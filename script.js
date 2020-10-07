@@ -111,15 +111,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // map box
 mapboxgl.accessToken = 'pk.eyJ1IjoiamFjb2JuODgiLCJhIjoiY2tmeWRlcWl6MWx0dDJybXQ5NXRjazF2dSJ9.h9KXyaFyrcjkG9NRwU6a4A';
 var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-97.745, 30.265],
-    zoom: 10
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-97.739, 30.265],
+zoom: 12
 });
-
-map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-    })
-);
+ 
+var geocoder = new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+});
+//  places search bar outside of map
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
