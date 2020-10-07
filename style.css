@@ -47,6 +47,14 @@ img{  display: block;
     border-radius: 12px;
     
 }
+.next-button{
+    font-weight: bold;
+    color: white;
+    border-style: groove;
+    border-radius: 12px;
+    margin-left: 15px;
+    
+}
 .card-title {
     text-align: inherit;
 }

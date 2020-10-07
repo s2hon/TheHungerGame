@@ -71,8 +71,10 @@ function getRecipe() {
         cardContentEl.append(ingredientEl);
         // create element to go to recipe page
         var recipebtn = $("<button>").addClass("btn recipe-button waves-effect waves-light").text("Click to View Directions!");
-
+        var nextButtonEl = $("<button>").addClass("btn next-button waves-effect waves-light").text("Next");
+        
         cardContentEl.append(recipebtn);
+        cardContentEl.append(nextButtonEl);
         recipeEl.append(cardContentEl);
 
         $(document).on('click', '.recipe-button', function(){
