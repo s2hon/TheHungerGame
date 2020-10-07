@@ -79,20 +79,15 @@ function getRecipe() {
             ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
            ingredientEl.append(ingredientList);
             // store them to local storage
-<<<<<<< HEAD
            
            //calledIngredientlist = window.localStorage.ingredientList( ,, );
            //we need to make a variable in global area "var = calledIngredientlist"
            // then we have access to it grab it by using "let page" line 85
         }
        
-      
-      
-=======
-            
+            var shoppingList = localStorage.setItem("ingredients", ingredientList);
         }
        
->>>>>>> 49d389226c3e4185faf377c96fba44386fb10631
 
     })
 
@@ -110,11 +105,9 @@ let page = document.body.id("#shoppingCart");
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, { edge: 'right' });
-<<<<<<< HEAD
     })
-=======
 })
->>>>>>> 49d389226c3e4185faf377c96fba44386fb10631
+
 //side bar
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
