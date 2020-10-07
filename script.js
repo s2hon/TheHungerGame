@@ -83,6 +83,9 @@ function getRecipe() {
         $(document).on('click', '.recipe-button', function () {
             window.open(response.hits[randomIndex].recipe.url);
         });
+
+    
+
         // creating an on click to next recipe
         $(document).on('click', '.next-button', function (event) {
             recipeEl.empty();
@@ -137,7 +140,6 @@ function getRecipe() {
         window.open(response.hits[randomIndex].recipe.url);
     });
         });
-
         var forList = response.hits[randomIndex].recipe.ingredients;
         console.log(forList);
         //     //  list and forloop for ingredients 
@@ -152,7 +154,7 @@ function getRecipe() {
 
 
     })
-
+    
 };
 
 
