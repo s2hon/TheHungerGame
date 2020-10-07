@@ -2,6 +2,7 @@
 .mapboxgl-ctrl-geocoder {
     width: 600px!important;
 }
+
 header, main, footer {
     padding-right: 300px;
   }
@@ -11,3 +12,8 @@ header, main, footer {
       padding-right: 0;
     }
   }
+
+.card-content {
+    text-align: center;
+}
+
