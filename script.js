@@ -70,7 +70,7 @@ function getRecipe() {
         // printing ingredient to card
         cardContentEl.append(ingredientEl);
         // create element to go to recipe page
-        var recipebtn = $("<button>").addClass("recipe-button").text("Click to View Directions!");
+        var recipebtn = $("<button>").addClass("btn recipe-button waves-effect waves-light").text("Click to View Directions!");
 
         cardContentEl.append(recipebtn);
         recipeEl.append(cardContentEl);
