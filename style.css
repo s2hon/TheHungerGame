@@ -1,0 +1,4 @@
+/* mapbox searchbar size */
+.mapboxgl-ctrl-geocoder {
+    width: 600px!important;
+}
