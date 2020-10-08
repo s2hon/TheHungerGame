@@ -23,28 +23,48 @@
     
     <nav>
         <div class="nav-wrapper">
-          <a class="brand-logo">Hunger Game</a>
+          <a class="brand-logo" href="./index.html">Hunger Game</a>
            <ul id="nav-mobile" class="right hide-on-med-and-down">
               </ul>
         </div>
       </nav>
 
 </head>
-<body>
+<body id = "shoppingCart">
     <div class="container">
         <div class="row">
              <!--Left colum-->
             <div class="col s6"></div>
 
             <!--middle colum adding all items-->
-            <div class="col s6">6-columns (Middle one)</div>
+            <div class="col s6">
+              <!--we can use this tags as an anchor for adding jQuery for our list-->
+              <p>
+                <label>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+              </p>
+               
+           
+            </div>
 
             <!--rigth colum-->
             <div class="col s6"></div>
           </div>
     </div>
     
+<script>
+
+   var shoppingIngredients = $(document).$(".material-icons right").on("click", function(){
+     //when I click this button it takes me to HTML page and I think it needs attr 
+    var shoppingCartList = JSON.parse(localStorage.getItem("ingredients"));
+    console.log(shoppingCartList)
+
+  })
 
 
+</script>
+    <script src="script.js"></script>
 </body>
 </html>

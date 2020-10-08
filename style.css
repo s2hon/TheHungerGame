@@ -2,3 +2,79 @@
 .mapboxgl-ctrl-geocoder {
     width: 600px!important;
 }
+/* this offsets the margin for the sidebar */
+header, main, footer {
+    padding-right: 300px;
+  }
+/* seach bar location */
+  .geocoder {
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    left: 0%;
+    
+    }
+    /* store locator text */
+    .header {
+        text-align: center;
+    }
+   
+  nav{
+      background-color :rgb(245, 97, 29);
+      
+  }
+.card-content {
+    text-align: center;
+}
+img{  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px; 
+    max-height: 500px;
+   
+}
+.calories-text{
+    font-weight: bold;
+}
+.health-label{
+    color: rgb(212, 16, 16);
+    font-style: oblique;
+}
+.recipe-button{
+    font-weight: bold;
+    color: white;
+    border-style: groove;
+    border-radius: 12px;
+    
+}
+.brand-logo {
+    margin-left: 20px;
+}
+.next-button{
+    font-weight: bold;
+    color: white;
+    border-style: groove;
+    border-radius: 12px;
+    margin-left: 15px;
+}
+.card-title {
+    text-align: inherit;
+}
+
+    .card {
+    border-style: groove;
+    border-radius: 12px;
+}
+
+.container {
+    margin-left: 20px;
+}
+input {
+    padding: 0px 35px !important;
+}
+.sidenav {
+    background-color: #26a69a;
+}
+.header {
+    font-size: 30px;
+}
