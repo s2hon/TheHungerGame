@@ -73,8 +73,8 @@ $(document).ready(function () {
     //main
     console.log(search);
     function getRecipe() {
-        var app_id = "2d0cdeda";
-        var api_key = "5a09930cb72b211827aef4fbbdb035b5";
+        var app_id = "11c00227";
+        var api_key = "babedfc765896804d428442108150452";
         queryURL = "https://api.edamam.com/search?q=" + selectOne + "&app_id=" + app_id + "&app_key=" + api_key + search;
         $.ajax({
             url: queryURL,
