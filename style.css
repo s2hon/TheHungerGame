@@ -167,3 +167,9 @@ header, main, footer {
     width: 400px; 
     height: 400px;
 }
+.mapboxgl-ctrl-geocoder--suggestion-title {
+    padding-bottom: 15px;
+}
+.material-icons {
+    color: #D90404;
+}
