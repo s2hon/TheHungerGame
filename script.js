@@ -139,6 +139,10 @@ function getRecipe() {
             window.open(response.hits[randomIndex].recipe.url);
         });
 
+        $(document).on("click", ".cart-button ",function(){
+            window.location.href='shoppingCart.html';
+        });
+            
     
 
         // creating an on click to next recipe
