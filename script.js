@@ -7,6 +7,7 @@ var choiceThree = [];
 var para = [];
 var selectThree = '';
 var search = '';
+var recipeIngre = [];
 
 $(document).ready(function() {
     //event listener for health type
@@ -181,13 +182,12 @@ function getRecipe() {
                 console.log(response.hits[randomIndex].recipe.ingredients[i].text);
                 ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
                 ingredientEl.append(ingredientList);
-                // store them to local storage
-                var shoppingList = localStorage.setItem("ingredients", ingredientList);
-            }
+                console.log(ingredientList[i]);
+            };
      // on click wil take you to a page with directions
      $(document).on('click', '.recipe-button', function () {
         window.open(response.hits[randomIndex].recipe.url);
-    });
+        });
         });
         var forList = response.hits[randomIndex].recipe.ingredients;
         console.log(forList);
@@ -195,14 +195,14 @@ function getRecipe() {
         for (var i = 0; i < forList.length; i++) {
             var ingredientList = $("<li>");
             console.log(response.hits[randomIndex].recipe.ingredients[i].text);
+            recipeIngre.push(response.hits[randomIndex].recipe.ingredients[i].text);
             ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
             ingredientEl.append(ingredientList);
-            // store them to local storage
-           
            //calledIngredientlist = window.localStorage.ingredientList( ,, );
            //we need to make a variable in global area "var = calledIngredientlist"
            // then we have access to it grab it by using "let page" line 85
         }
+        var shoppingCartList = localStorage.setItem("ingredients", JSON.stringify(recipeIngre));
     });
 };
 });
