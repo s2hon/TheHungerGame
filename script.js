@@ -117,11 +117,15 @@ function getRecipe() {
             cardContentEl.append(healthLabelList);
             // print calories to card
             cardContentEl.append(caloriesEl);
+            var cartButtonEl = $("<button>").addClass("btn cart-button waves-effect waves-light").text("Add Ingredients Cart");
+            cardContentEl.append(cartButtonEl);
             // printing ingredient to card
             cardContentEl.append(ingredientEl);
             // create element to go to recipe page
             var recipebtn = $("<button>").addClass("btn recipe-button waves-effect waves-light").text("Click to View Directions!");
             var nextButtonEl = $("<button>").addClass("btn next-button waves-effect waves-light").text("Next");
+            
+            
 
             cardContentEl.append(recipebtn);
             cardContentEl.append(nextButtonEl);
