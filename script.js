@@ -1,39 +1,70 @@
-//check box (left column)
-var dietary = [];
+//User Preference(left column)
+var selectOne = '';
+var choiceOne = ['breakfast', 'lunch', 'dinner', 'snack'];
+var selectTwo = '';
+var choiceTwo = ['balanced', 'high-protein', 'low-fat', 'low-carb'];
+var choiceThree = [];
+var para = [];
+var selectThree = '';
 var search = '';
 
-//event listener for being checked
-$('input[type=checkbox]').change(function () {
-    if ($(this).is(':checked')) {
-        $(this).attr('checked', 'checked');
-        dietary.push($(this).siblings('span').text());
-    }
-});
+$(document).ready(function() {
+    //event listener for health type
+    $('input[type=checkbox]').change(function () {
+        if ($(this).is(':checked')) {
+            $(this).attr('checked', 'checked');
+            choiceThree.push($(this).siblings('span').text());
+        }
+    });
 
-//event listener for being unchecked
-$('input[type=checkbox]').change(function () {
-    if (!$(this).is(':checked')) {
-        $(this).removeAttr('checked', 'checked');
-        var remove = $(this).siblings('span').text();
-        dietary.splice($.inArray(remove, dietary), 1);
-    }
-});
+    //event listener for being unchecked (health type)
+    $('input[type=checkbox]').change(function () {
+        if (!$(this).is(':checked')) {
+            $(this).removeAttr('checked', 'checked');
+            var remove = $(this).siblings('span').text();
+            choiceThree.splice($.inArray(remove, choiceThree), 1);
+        }
+    });
 
-//submit button
-$('.submitBtn').on('click', function () {
-    console.log(dietary);
-    dietary = dietary.toString().toLowerCase().replace(/ +/g, '');
-    search = dietary.replace(',', '&');
-    //run main function
-    getRecipe();
-});
+    //submit button
+    $('.submitBtn').on('click', function () {
+        if ($('select.mealType').val()!== null){
+            mealIn = $('select.mealType').val();
+            selectOne = choiceOne[mealIn-1]
+            typeIn = $('select.dietType').val();
+            selectTwo = "&diet="+choiceTwo[typeIn-1]+"&"
+        }
+        else {
+            selectOne = ''
+            selectTwo = ''
+        }
+
+        if (choiceThree.length!==0) {
+            for (i=0; i<choiceThree.length; i++) {
+                para.push("health="+choiceThree[i].toLowerCase());
+            }
+            // para.push("&health="+choiceThree[choiceThree.length-1]);
+            console.log(para);
+            selectThree = para.toString().replace(",", "&");
+            console.log(selectOne);
+            console.log(selectTwo);
+            console.log(selectThree);
+            search = selectTwo+selectThree;
+
+            // run main function
+            getRecipe();
+        }
+        else if (dietary.length===0) {
+            getRecipe();
+        }
+    });
 
 //main
 console.log(search);
 function getRecipe() {
     var app_id = "2d0cdeda";
     var api_key = "5a09930cb72b211827aef4fbbdb035b5";
-    queryURL = "https://api.edamam.com/search?q=" + search + "&app_id=" + app_id + "&app_key=" + api_key;
+    queryURL = "https://api.edamam.com/search?q="+selectOne+ "&app_id=" + app_id + "&app_key=" + api_key + search;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -81,14 +112,7 @@ function getRecipe() {
             // store them to local storage
             var shoppingList = localStorage.setItem("ingredients", ingredientList);
         }
-<<<<<<< HEAD
     });
-=======
-       
-
-    })
-
->>>>>>> 56574d4f4c72a989d781225817c050089e09ae9a
 };
 
 
@@ -96,11 +120,7 @@ function getRecipe() {
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, { edge: 'right' });
-<<<<<<< HEAD
 });
-=======
-})
->>>>>>> 56574d4f4c72a989d781225817c050089e09ae9a
 //side bar
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
@@ -121,3 +141,5 @@ map.addControl(
         mapboxgl: mapboxgl
     })
 );
+
+});
