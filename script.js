@@ -131,6 +131,7 @@ $(document).ready(function () {
             cardContentEl.append(recipebtn);
             cardContentEl.append(nextButtonEl);
             recipeEl.append(cardContentEl);
+ 
 
 
 
