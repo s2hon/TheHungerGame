@@ -28,24 +28,34 @@ $(document).ready(function() {
 
     //submit button
     $('.submitBtn').on('click', function () {
-        if ($('select.mealType').val()!== null){
+        if ($('select.mealType').val()!== null && $('select.dietType').val()!==null){
             mealIn = $('select.mealType').val();
             selectOne = choiceOne[mealIn-1]
             typeIn = $('select.dietType').val();
-            selectTwo = "&diet="+choiceTwo[typeIn-1]+"&"
+            selectTwo = "&diet="+choiceTwo[typeIn-1]+"&";
+        }
+        else if ($('select.mealType').val()>0 && $('select.dietType').val()!== null) {
+            mealIn = $('select.mealType').val();
+            selectOne = choiceOne[mealIn-1]
+            selectTwo = '';
+        }
+        else if ($('select.mealType').val()!== null && $('select.dietType').val()>0){
+            selectOne = choiceOne[Math.floor(Math.random()*(4))];
+            typeIn = $('select.dietType').val();
+            selectTwo = "&diet="+choiceTwo[typeIn-1];
         }
         else {
-            selectOne = ''
-            selectTwo = ''
+            selectOne = choiceOne[Math.floor(Math.random()*(4))];
+            selectTwo = '';
         }
 
-        if (choiceThree.length!==0) {
+        if (choiceThree.length!==null) {
             for (i=0; i<choiceThree.length; i++) {
-                para.push("health="+choiceThree[i].toLowerCase());
+                para.push("&health="+choiceThree[i].toLowerCase());
             }
             // para.push("&health="+choiceThree[choiceThree.length-1]);
             console.log(para);
-            selectThree = para.toString().replace(",", "&");
+            selectThree = para.toString().replace(",", "");
             console.log(selectOne);
             console.log(selectTwo);
             console.log(selectThree);
@@ -54,7 +64,7 @@ $(document).ready(function() {
             // run main function
             getRecipe();
         }
-        else if (dietary.length===0) {
+        else if (choiceThree.length!==null) {
             getRecipe();
         }
     });
@@ -70,7 +80,14 @@ function getRecipe() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        //   generating a random index number between 0 and length of response hits array
+        //reset search variables
+        selectOne = '';
+        selectTwo = '';
+        choiceThree = [];
+        para = [];
+        selectThree = '';
+        search = '';
+        //generating a random index number between 0 and length of response hits array
         
             var randomIndex = Math.floor((Math.random() * response.hits.length));
             var recipeEl = $("#recipe");
@@ -108,6 +125,7 @@ function getRecipe() {
             cardContentEl.append(recipebtn);
             cardContentEl.append(nextButtonEl);
             recipeEl.append(cardContentEl);
+        
         
 
         // on click wil take you to a page with directions
@@ -187,7 +205,7 @@ function getRecipe() {
         }
     });
 };
-
+});
 
 
 //right column
@@ -225,4 +243,3 @@ var geocoder = new MapboxGeocoder({
 });
 //  places search bar outside of map
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-});

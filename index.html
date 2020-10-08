@@ -14,8 +14,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!--ling to icons from materialize-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--font style-->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Ramabhadra&family=Roboto&display=swap" rel="stylesheet">
   <!-- mapbox -->
-
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
   <!-- Compiled and minified JavaScript -->
@@ -28,117 +29,109 @@
 <body>
   <!--nav bar-->
   <header>
-
     <nav>
-      <div class="nav-wrapper">
-        <a class="brand-logo">The Hunger Game</a>
+      <div class="nav-wrapper" style="left: 5%;">
+        <a class="brand-logo" style="color: #D90404 !important">THE HUNGER GAME</a> <i class="fas fa-cookie-bite"></i>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <!--Adding shoping cart icon and its link-->
+            <!--Adding shoping cart icon and its link-->
           <li><a href="shoppingCart.html"> <i class="large material-icons">local_grocery_store</i></a></li>
         </ul>
       </div>
     </nav>
-
   </header>
+  
 
   <div class="container">
     <div class="row">
-      <!--Left Column filters-->
-      <div class="col m3">
+      <div class="col s12 m3 xl3 card z-depth-0" id="selector">
+
         <!--heading-->
         <div class="row">
-            <!--Left Column filters-->
-            <div class="col m3">
-                <!--heading-->
-                <div class="row">
-                    <h5>What do you want?</h5>
-                </div>
-                <!--filters-->
-                <div class="row">
-                  <!--meal type-->
-                  <label>Meal Type</label>
-                  <select class="browser-default mealType">
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Breakfast</option>
-                    <option value="2">Lunch</option>
-                    <option value="3">Dinner</option>
-                    <option value="4">Snack</option>
-                  </select>
-                </div>
-                <!--diet preference-->
-                <div class="row">
-                  <label>Diet Preference</label>
-                  <select class="browser-default dietType">
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Balanced</option>
-                    <option value="2">High-protein</option>
-                    <option value="3">Low-fat</option>
-                    <option value="4">Low-carb</option>
-                  </select>
-                </div>
-                <!--Health Labels-->
-                <div class="row">
-                  <label>Health Labels</label>
-                  <form action="#" class="health">
-                    <p>
-                      <label>
-                        <input type="checkbox" class="filled-in"/>
-                        <span>Vegan</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input type="checkbox" class="filled-in"/>
-                        <span>Vegetarian</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input type="checkbox" class="filled-in"/>
-                        <span>Sugar-conscious</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input type="checkbox" class="filled-in"/>
-                        <span>Peanut-free</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input type="checkbox" class="filled-in"/>
-                        <span>Tree-nut-free</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input type="checkbox" class="filled-in"/>
-                        <span>Alcohol-free</span>
-                      </label>
-                    </p>
-                  </form>
-                        
-                </div>
-                <!--submit-->
-                <div class="row">
-                    <button class="btn waves-effect waves-light btn-small submitBtn" type="submit" name="action">Submit
-                        <i class="far fa-paper-plane"></i>
-                      </button>
-                </div>
-            </div>
+          <h5>What do you want?</h5>
+        </div>
 
+        <!--filters-->
+        <div class="row">
+          <!--meal type-->
+          <label>Meal Type</label>
+          <select class="browser-default mealType">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Breakfast</option>
+            <option value="2">Lunch</option>
+            <option value="3">Dinner</option>
+            <option value="4">Snack</option>
+          </select>
+        </div>
 
-            <div class="col md 6">
-                <div id="recipe" class="card">
-                  
-                </div>
-            </div>
-
+        <!--diet preference-->
+        <div class="row">
+          <label>Diet Preference</label>
+          <select class="browser-default dietType">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Balanced</option>
+            <option value="2">High-protein</option>
+            <option value="3">Low-fat</option>
+            <option value="4">Low-carb</option>
+          </select>
+        </div>
+        <!--Health Labels-->
+        <div class="row">
+          <label>Health Labels</label>
+          <form action="#" class="health">
+            <p>
+              <label>
+                <input type="checkbox" class="filled-in"/>
+                <span>Vegan</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" class="filled-in"/>
+                <span>Vegetarian</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" class="filled-in"/>
+                <span>Sugar-conscious</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" class="filled-in"/>
+                <span>Peanut-free</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" class="filled-in"/>
+                <span>Tree-nut-free</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" class="filled-in"/>
+                <span>Alcohol-free</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <!--submit-->
+        <div class="row">
+            <button class="btn waves-effect waves-light btn-small submitBtn" type="submit" name="action">Submit
+                <i class="far fa-paper-plane"></i>
+              </button>
         </div>
       </div>
 
+      
+      <!--main-->
+      <div class="col s12 m6 xl6">
+          <div id="recipe" class="card"></div>
+      </div>
+
       <!--Store Locator-->
-      <div class="col m3">
+      <div class="col s12 m3 xl3">
         <ul id="slide-out" class="sidenav sidenav-fixed">
           <li>
             <div class="user-view"></div>
@@ -151,22 +144,24 @@
           <li>
             <div class="row">
               <form class="col s12">
-                <div class="row">
-                </div>
+                <div class="row"></div>
               </form>
             </div>
           </li>
         </ul>
       </div>
+
     </div>
   </div>
+
   <!-- mapbox -->
   <script
     src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
     type="text/css" />
-  <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+  
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
   <script>
@@ -176,13 +171,15 @@
       style: 'mapbox://styles/mapbox/streets-v11'
     });
   </script>
+  
   <!-- end mapbox -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
-  <!-- Compiled and minified JavaScript -->
+  
+    <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="script.js"></script>
 </body>

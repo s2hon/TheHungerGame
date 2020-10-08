@@ -1,3 +1,137 @@
+*{font-family: 'Roboto', sans-serif; 
+    background-color: #F2F2F2;
+}
+i{
+    background-color: transparent;
+}
+
+/*nav bar*/
+nav{
+    background-color: transparent;
+    box-shadow: 0;
+    min-height: 90px;
+}
+.nav-wrapper{
+    background-color: #F2F2F2 !important;
+    color: #D90404 !important;
+    font-size: 25px;
+   }
+
+.brand-logo {
+    margin-left: 3%;
+    font-family: 'Archivo Black';
+    font-size: 35pt;
+}
+
+/*left column*/
+#selector{
+    padding: 3%;
+    border-color: #D90404;
+    border-width: thick;
+    background-color: #F2F2F2;
+    box-shadow: none!important;
+    border-radius: 0;
+    border-style: solid;
+}
+h5 {
+    font-family: 'Ramabhadra', sans-serif;
+    font-size: 20pt;
+    color: #D90404;
+}
+
+.btn {
+    font-family: 'Ramabhadra', sans-serif;;
+    font-size: large;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none!important;
+    color: #D90404;
+    align-self: center;
+}
+
+.btn:hover {
+    background-color: #F2A7A7;
+  }
+
+  .btn:visited {
+    background-color: #3D6F99;
+  }
+
+/*main*/
+.card-content {
+    text-align: center;
+}
+
+img{display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px; 
+    max-height: 500px;
+}
+
+.calories-text{
+    font-family:'Roboto', sans-serif; 
+    font-weight: bold;
+}
+
+.health-label{
+    color: #D90404;
+    font-style: oblique;
+    font-weight: bold;
+    font-family: 'Ramabhadra', sans-serif;;
+}
+
+.recipe-button{
+    font-family: 'Ramabhadra', sans-serif;;
+    font-size: large;
+    background-color: #F2DD72;
+    color: #0D0D0D;
+    font-size: x-large;
+}
+
+.next-button{
+    font-weight: bold;
+    font-family: 'Ramabhadra', sans-serif;;
+    font-size: large;
+    background-color: transparent;
+    box-shadow: none!important;
+    color: #D90404;
+    margin-left: 15px;
+}
+
+.card {
+    align-self: center;
+    border-style: groove;
+    border-radius: 12px;
+}
+
+.card-title {
+    text-align: inherit;
+    font-family: 'Ramabhadra', sans-serif;
+    font-size: xx-large;
+    color: #0D0D0D !important;
+}
+
+
+
+.container {
+    margin-left: 20px;
+}
+input {
+    padding: 0px 35px !important;
+}
+
+.header {
+    font-size: 30px;
+    font-family: 'Ramabhadra', sans-serif;
+    font-size: xx-large;
+}
+
+/*right column*/
+.sidenav {
+    background-color: #26a69a;
+}
+
 /* mapbox searchbar size */
 .mapboxgl-ctrl-geocoder {
     width: 600px!important;
@@ -14,67 +148,8 @@ header, main, footer {
     left: 0%;
     
     }
-    /* store locator text */
-    .header {
-        text-align: center;
-    }
-   
-  nav{
-      background-color :rgb(245, 97, 29);
-      
-  }
-.card-content {
+/* store locator text */
+.header {
     text-align: center;
 }
-img{  display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px; 
-    max-height: 500px;
    
-}
-.calories-text{
-    font-weight: bold;
-}
-.health-label{
-    color: rgb(212, 16, 16);
-    font-style: oblique;
-}
-.recipe-button{
-    font-weight: bold;
-    color: white;
-    border-style: groove;
-    border-radius: 12px;
-    
-}
-.brand-logo {
-    margin-left: 20px;
-}
-.next-button{
-    font-weight: bold;
-    color: white;
-    border-style: groove;
-    border-radius: 12px;
-    margin-left: 15px;
-}
-.card-title {
-    text-align: inherit;
-}
-
-    .card {
-    border-style: groove;
-    border-radius: 12px;
-}
-
-.container {
-    margin-left: 20px;
-}
-input {
-    padding: 0px 35px !important;
-}
-.sidenav {
-    background-color: #26a69a;
-}
-.header {
-    font-size: 30px;
-}
