@@ -128,8 +128,12 @@ input {
 }
 
 /*right column*/
-.sidenav {
-    background-color: #26a69a;
+.sidenav{
+    background-color: #F2DD72;
+}
+
+.user-view {
+    background-color: #F2DD72;
 }
 
 /* mapbox searchbar size */
