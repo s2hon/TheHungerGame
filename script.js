@@ -225,3 +225,4 @@ var geocoder = new MapboxGeocoder({
 });
 //  places search bar outside of map
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+});
