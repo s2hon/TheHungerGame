@@ -158,8 +158,9 @@ function getRecipe() {
             var  shoppingList = localStorage.setItem("ingredients",JSON.stringify(ingredientList[i]));
         }
 
-
     )
+
+    
     
 };
 
@@ -185,7 +186,12 @@ var map = new mapboxgl.Map({
     center: [-97.739, 30.265],
     zoom: 12
 });
-
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
+);
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl
