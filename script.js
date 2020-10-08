@@ -141,9 +141,11 @@ function getRecipe() {
 
         $(document).on("click", ".cart-button ",function(){
             window.location.href='shoppingCart.html';
+            
+            
         });
             
-    
+          
 
         // creating an on click to next recipe
         $(document).on('click', '.next-button', function (event) {
