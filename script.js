@@ -203,18 +203,7 @@ function getRecipe() {
            //we need to make a variable in global area "var = calledIngredientlist"
            // then we have access to it grab it by using "let page" line 85
         }
-<<<<<<< HEAD
-       
-            var  shoppingList = localStorage.setItem("ingredients",JSON.stringify(ingredientList[i]));
-        }
-
-    )
-
-    
-    
-=======
     });
->>>>>>> bcf9acb4cf3d8fc8a67e08be4d1d79fe03074fd0
 };
 });
 
