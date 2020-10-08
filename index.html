@@ -47,88 +47,92 @@
       <div class="col m3">
         <!--heading-->
         <div class="row">
-          <h5>Dietary Preferences</h5>
-        </div>
-        <!--filters-->
-        <div class="row">
-          <form action="#">
-            <p>
-              <label>
-                <!--<input type="checkbox" checked="checked" disabled="disabled" />-->
-                <input type="checkbox" class="filled-in" />
-                <span>Pescetarian</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Lacto-Vegetarian</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Ovo-Vegetarian</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Vegetarian</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Vegan</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Dairy Free</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Gluten Free</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Peanut Free</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Shellfish Free</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Tree Nut Free</span>
-              </label>
-            </p>
-          </form>
-        </div>
-        <!--submit-->
-        <div class="row">
-          <button class="btn waves-effect waves-light btn-small submitBtn" type="submit" name="action">Submit
-            <i class="far fa-paper-plane"></i>
-          </button>
-        </div>
-      </div>
+            <!--Left Column filters-->
+            <div class="col m3">
+                <!--heading-->
+                <div class="row">
+                    <h5>What do you want?</h5>
+                </div>
+                <!--filters-->
+                <div class="row">
+                  <!--meal type-->
+                  <label>Meal Type</label>
+                  <select class="browser-default mealType">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Breakfast</option>
+                    <option value="2">Lunch</option>
+                    <option value="3">Dinner</option>
+                    <option value="4">Snack</option>
+                  </select>
+                </div>
+                <!--diet preference-->
+                <div class="row">
+                  <label>Diet Preference</label>
+                  <select class="browser-default dietType">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Balanced</option>
+                    <option value="2">High-protein</option>
+                    <option value="3">Low-fat</option>
+                    <option value="4">Low-carb</option>
+                  </select>
+                </div>
+                <!--Health Labels-->
+                <div class="row">
+                  <label>Health Labels</label>
+                  <form action="#" class="health">
+                    <p>
+                      <label>
+                        <input type="checkbox" class="filled-in"/>
+                        <span>Vegan</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input type="checkbox" class="filled-in"/>
+                        <span>Vegetarian</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input type="checkbox" class="filled-in"/>
+                        <span>Sugar-conscious</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input type="checkbox" class="filled-in"/>
+                        <span>Peanut-free</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input type="checkbox" class="filled-in"/>
+                        <span>Tree-nut-free</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input type="checkbox" class="filled-in"/>
+                        <span>Alcohol-free</span>
+                      </label>
+                    </p>
+                  </form>
+                        
+                </div>
+                <!--submit-->
+                <div class="row">
+                    <button class="btn waves-effect waves-light btn-small submitBtn" type="submit" name="action">Submit
+                        <i class="far fa-paper-plane"></i>
+                      </button>
+                </div>
+            </div>
 
-      <!--Main recipe load page-->
 
-      <div class="col md 6">
-        <div id="recipe" class="card">
-
-
+            <div class="col md 6">
+                <div id="recipe" class="card">
+                  
+                </div>
+            </div>
 
         </div>
       </div>
