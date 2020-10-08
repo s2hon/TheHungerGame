@@ -47,6 +47,7 @@ h5 {
     box-shadow: none!important;
     color: #D90404;
     align-self: center;
+    border-radius: 50%
 }
 
 .btn:hover {
@@ -87,6 +88,8 @@ img{display: block;
     background-color: #F2DD72;
     color: #0D0D0D;
     font-size: x-large;
+    border-radius: 50%;
+
 }
 
 .next-button{
@@ -157,3 +160,10 @@ header, main, footer {
     text-align: center;
 }
    
+#thank-you{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px; 
+    height: 400px;
+}
