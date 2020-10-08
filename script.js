@@ -186,12 +186,17 @@ var map = new mapboxgl.Map({
     center: [-97.739, 30.265],
     zoom: 12
 });
+
+ // Add geolocate control to the map.
 map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-    })
-);
+  new mapboxgl.GeolocateControl({
+  positionOptions: {
+  enableHighAccuracy: true
+  },
+  trackUserLocation: true
+  })
+  );
+  
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl

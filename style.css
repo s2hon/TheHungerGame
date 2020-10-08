@@ -47,13 +47,15 @@ img{  display: block;
     border-radius: 12px;
     
 }
+.brand-logo {
+    margin-left: 20px;
+}
 .next-button{
     font-weight: bold;
     color: white;
     border-style: groove;
     border-radius: 12px;
     margin-left: 15px;
-    
 }
 .card-title {
     text-align: inherit;
@@ -64,5 +66,15 @@ img{  display: block;
     border-radius: 12px;
 }
 
-
-
+.container {
+    margin-left: 20px;
+}
+input {
+    padding: 0px 35px !important;
+}
+.sidenav {
+    background-color: #26a69a;
+}
+.header {
+    font-size: 30px;
+}
