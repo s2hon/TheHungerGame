@@ -70,6 +70,11 @@ $(document).ready(function () {
         }
     });
 
+    //shopping cart button
+    $(".goShopping").on("click", function() {
+        window.location.href = "./shoppingCart.html";   
+      });
+
     //main
     console.log(search);
     function getRecipe() {
@@ -132,9 +137,6 @@ $(document).ready(function () {
             cardContentEl.append(nextButtonEl);
             recipeEl.append(cardContentEl);
  
-
-
-
             // on click wil take you to a page with directions
             $(document).on('click', '.recipe-button', function () {
                 window.open(response.hits[randomIndex].recipe.url);

@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Hunger Game</title>
+  
+  <title>THE HUNGER GAME</title>
+  
   <!--Bootstrap CSS-->
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -17,34 +19,44 @@
   <!--font style-->
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Ramabhadra&family=Roboto&display=swap"
     rel="stylesheet">
-  <!-- mapbox -->
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!--map-->
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet'>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <link rel="stylesheet" href="style.css" />
-
+  <!--custom CSS style sheet-->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!--nav bar-->
   <header>
-    <nav>
-      <div class="nav-wrapper" style="left: 5%;">
-        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-        <a class="brand-logo" style="color: #D90404 !important">THE HUNGER GAME</a> <i class="fas fa-cookie-bite"></i>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <!--Adding shoping cart icon and its link-->
-          <li><a href="shoppingCart.html"> <i class="large material-icons">local_grocery_store</i></a></li>
+    <!--Navigation Bar-->
+    
+    <nav class="z-depth-0">   
+        <ul>
+          <li>
+            <span style="color: #D90404 !important"><i class="fas fa-cookie-bite fa-3x"></i></span>
+          </li>
+          <li>
+            <h3 style="color: #0D0D0D !important"><span style="color: #D90404 !important">THE</span></h3>
+          </li>
+          <li>
+            <h3 style="color: #0D0D0D !important">HUNGER</h3>
+          </li>
+          <li>
+            <h3><span style="color: #D90404 !important">GAME</span></h3>
+          </li>
+          <li class="right" style="position:absolute;right:-25%;">
+            <a href="#" data-target="slide-out" class="navlink sidenav-trigger show-on-large"><i class="fas fa-map-marked-alt" style="color: #D90404 !important"></i></a>
+          </li>
+          <li class="right" style="position:absolute;right:-35%;">
+            <a href="./shoppingCart.html"><i class="navlink fas fa-shopping-basket" style="color: #D90404 !important"></i></a>
+          </li>
         </ul>
-      </div>
-    </nav>
+    </nav>     
   </header>
 
 
@@ -54,7 +66,7 @@
 
         <!--heading-->
         <div class="row">
-          <h5>What do you want?</h5>
+            <h5>TAKE YOUR PICK</h5>
         </div>
 
         <!--filters-->
@@ -136,13 +148,13 @@
       <div class="col s12 m8 xl6">
           <div id="recipe" class="card">
             <img id="thank-you" src="./thankyoubag.jpg">
-            <h5 style="color:#D90404;"><i class="far fa-hand-point-left"></i>CLICK ON SUBMIT TO START</h5>
+            <h5 style="color:#D90404;"> <i class="far fa-hand-point-left"></i> CLICK ON SUBMIT TO START</h5>
           </div>
       </div>
 
 
-        <!--Store Locator-->
-        <div class="row">
+      <!--Store Locator-->
+      <div class="row">
         <div class="col s12 m2 xl3">
 
           <ul id="slide-out" class="sidenav sidenav-fixed">
