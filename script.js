@@ -178,7 +178,7 @@ $(document).ready(function () {
                 // print calories to card
                 cardContentEl.append(caloriesEl);
                 // add to cart button
-                var cartButtonEl = $("<button>").addClass("btn cart-button waves-effect waves-light").text("Add Ingredients Cart");
+                var cartButtonEl = $("<button>").addClass("btn cart-button waves-effect waves-light").text("Add Ingredients to Cart");
                 cardContentEl.append(cartButtonEl);
                 // printing ingredient to card
                 cardContentEl.append(ingredientEl);
