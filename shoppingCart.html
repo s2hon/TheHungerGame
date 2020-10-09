@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE HUNTER GAME: Shopping List</title>
+    <title>THE HUNGER GAME: Shopping List</title>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous"/>  <!-- Compiled and minified CSS -->
+    crossorigin="anonymous"/>  
+    <!--font style-->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Ramabhadra&family=Roboto&display=swap"
+    rel="stylesheet">
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--ling to icons from materialize-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -29,14 +33,17 @@
     background-color: #F2F2F2;
     box-shadow: none!important;
     border-radius: 0;
-}
+  }
   </style>
 </head>
 
 <body>
   <header>
-    <!--Navigation Bar-->
-    <h3><a href="./index.html"><i class="fas fa-cookie-bite" style="color: #D90404 !important"></i></a>THE</span>HUNGER<span style="color: #D90404 !important">GAME</span></h3>   
+    <ul>
+      <li>
+        <h3 style="color: #0D0D0D !important"><a href="./index.html"><i class="navlink fas fa-cookie-bite" style="color: #D90404 !important"></i></a><span style="color: #D90404 !important">THE</span>HUNGER<span style="color: #D90404 !important">GAME</span></h3>
+      </li>
+    </ul>
   </header>
 
   <div class="container">
@@ -48,6 +55,9 @@
               <ul class="personalIngre"></ul>
             <div class="card-action">
               <button class="btn waves-effect waves-light btn-small"><i class="fas fa-trash trash"></i></button>
+            </div>
+            <div class="card-action">
+              <a href="./index.html" style="color: #D90404 !important"><i class="navlink fas fa-cookie-bite"></i>GO BACK</a>
             </div>
             <div>
               
@@ -74,11 +84,11 @@ integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="ano
     }
 
     cardBodyEl.empty();
+    list = JSON.parse(localStorage.getItem("prevIngre"));
     for (var j = 0 ; j <  list.length ; j++){
       cardBodyEl.append("<li>"+ list[j] +"</li>");
     }
 
-    
 
     $('.trash').on("click", function clearIngredients() {
     window.localStorage.removeItem("ingredients");
