@@ -1,4 +1,8 @@
 # The Hunger Game
+It`s a simple APP in which user can find random meal recipe with ability to add more criteria to it for modification,
+and Hunger Game will bring back results. 
+# Technologies: 
+HTML, CSS, JS
 
 ## User Story:
 *   As a busy consumer
@@ -27,3 +31,5 @@
 ## Github:
 *   Repository: https://github.com/s2hon/TheHungerGame
 *   Deployed Website: https://s2hon.github.io/TheHungerGame/
+#Demo
+<img src="p1.gif" alt="GIF">
