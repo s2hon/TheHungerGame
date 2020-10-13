@@ -79,7 +79,7 @@ $(document).ready(function () {
     console.log(search);
     function getRecipe() {
         var app_id = "11c00227";
-        var api_key = "babedfc765896804d428442108150452";
+        var api_key = "";
         queryURL = "https://api.edamam.com/search?q=" + selectOne + "&app_id=" + app_id + "&app_key=" + api_key + search;
         $.ajax({
             url: queryURL,
