@@ -68,14 +68,12 @@ $(document).ready(function () {
     //shopping cart button
     $(".goShopping").on("click", function() {
         window.location.href = "./shoppingCart.html";   
-      });
+    });
 
     //main
     console.log(search);
     function getRecipe() {
-        var app_id = "11c00227";
-        var api_key = "babedfc765896804d428442108150452";
-        queryURL = "https://api.edamam.com/search?q=" + selectOne + "&app_id=" + app_id + "&app_key=" + api_key + search;
+        queryURL = "https://api.edamam.com/search?q=" + selectOne + "&app_id=" + process.env.APP_ID + "&app_key=" + process.env.API_KEY + search;
         $.ajax({
             url: queryURL,
             method: "GET"
