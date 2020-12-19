@@ -54,12 +54,7 @@ $(document).ready(function () {
             for (i = 0; i < choiceThree.length; i++) {
                 para.push("&health=" + choiceThree[i].toLowerCase());
             }
-            // para.push("&health="+choiceThree[choiceThree.length-1]);
-            console.log(para);
             selectThree = para.toString().replace(",", "");
-            console.log(selectOne);
-            console.log(selectTwo);
-            console.log(selectThree);
             search = selectTwo + selectThree;
 
             // run main function
@@ -85,7 +80,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
+            console.log(response)
             //reset search variables
             selectOne = '';
             selectTwo = '';
@@ -95,48 +90,22 @@ $(document).ready(function () {
             search = '';
             //generating a random index number between 0 and length of response hits array
 
-            var randomIndex = Math.floor((Math.random() * response.hits.length));
-            var recipeEl = $("#recipe");
-            recipeEl.empty();
-            var cardImgEl = $("<div>");
-            cardImgEl.addClass("card-image");
-            var img = $("<img>");
-            //   Grabbing random response hit and adding img link to image element
-            img.attr("src", response.hits[randomIndex].recipe.image);
-            var title = $("<span>");
-            title.addClass("card-title");
-            title.text(response.hits[randomIndex].recipe.label);
-            //   Grabbing random response hit and adding recipe name as title to img element
-            cardImgEl.append(img).append(title);
-            recipeEl.append(cardImgEl);
-            var cardContentEl = $("<div>");
-            var ingredientEl = $("<ul>");
-            cardContentEl.addClass("card-content");
-            // creating element to store health label
-            var healthLabelList = $("<div>").addClass("health-label");
-            // element to store calories
-            var caloriesEl = $("<div>").addClass("calories-text");
-            caloriesEl.text(" Total Calories per Serving: " + Math.floor(response.hits[randomIndex].recipe.calories / response.hits[randomIndex].recipe.yield));
-            // printing health label to card
-            healthLabelList.text(response.hits[randomIndex].recipe.healthLabels);
-            cardContentEl.append(healthLabelList);
-            // print calories to card
-            cardContentEl.append(caloriesEl);
-            // add to shopping list button
-            var cartButtonEl = $("<button>").addClass("btn cart-button waves-effect waves-light").text("Add Ingredients Cart");
-            cardContentEl.append(cartButtonEl);
-            // printing ingredient to card
-            cardContentEl.append(ingredientEl);
-            // create element to go to recipe page
-            var recipebtn = $("<button>").addClass("btn recipe-button waves-effect waves-light").text("Click to View Directions!");
-            var nextButtonEl = $("<button>").addClass("btn next-button waves-effect waves-light").text("Next");
+            var randomIndex = Math.floor((Math.random() * response.hits.length));   
+            $("#filler").hide();
 
+            $("#recipe").show();
+            $(".card-image").attr("src", response.hits[randomIndex].recipe.image);
+            $(".card-title").text(response.hits[randomIndex].recipe.label);
+            $(".calories-text").text(" Total Calories per Serving: " + Math.floor(response.hits[randomIndex].recipe.calories / response.hits[randomIndex].recipe.yield));
+            $(".health-label").text(response.hits[randomIndex].recipe.healthLabels);
+            //  list and forloop for ingredients 
+            var forList = response.hits[randomIndex].recipe.ingredients;
+            console.log(forList);
+            for (var i = 0; i < forList.length; i++) {
+                $(".ingredient-list").append("<li>"+response.hits[randomIndex].recipe.ingredients[i].text+"</li>");
+                recipeIngre.push(response.hits[randomIndex].recipe.ingredients[i].text);
+            };
 
-
-            cardContentEl.append(recipebtn);
-            cardContentEl.append(nextButtonEl);
-            recipeEl.append(cardContentEl);
- 
             // on click wil take you to a page with directions
             $(document).on('click', '.recipe-button', function () {
                 window.open(response.hits[randomIndex].recipe.url);
@@ -149,74 +118,70 @@ $(document).ready(function () {
 
 
             // creating an on click to next recipe
-            $(document).on('click', '.next-button', function (event) {
-                recipeEl.empty();
-                randomIndex++;
-                // create content again
-                var cardImgEl = $("<div>");
-                cardImgEl.addClass("card-image");
-                var img = $("<img>");
-                //   Grabbing random response hit and adding img link to image element
-                img.attr("src", response.hits[randomIndex].recipe.image);
-                var title = $("<span>");
-                title.addClass("card-title");
-                title.text(response.hits[randomIndex].recipe.label);
-                //   Grabbing random response hit and adding recipe name as title to img element
-                cardImgEl.append(img).append(title);
-                recipeEl.append(cardImgEl);
-                var cardContentEl = $("<div>");
-                var ingredientEl = $("<ul>");
-                cardContentEl.addClass("card-content");
-                // creating element to store health label
-                var healthLabelList = $("<div>").addClass("health-label");
-                // element to store calories
-                var caloriesEl = $("<div>").addClass("calories-text");
-                caloriesEl.text(" Total Calories per Serving: " + Math.floor(response.hits[randomIndex].recipe.calories / response.hits[randomIndex].recipe.yield));
-                // printing health label to card
-                healthLabelList.text(response.hits[randomIndex].recipe.healthLabels);
-                cardContentEl.append(healthLabelList);
-                // print calories to card
-                cardContentEl.append(caloriesEl);
-                // add to cart button
-                var cartButtonEl = $("<button>").addClass("btn cart-button waves-effect waves-light").text("Add Ingredients to Cart");
-                cardContentEl.append(cartButtonEl);
-                // printing ingredient to card
-                cardContentEl.append(ingredientEl);
-                // create element to go to recipe page
-                var recipebtn = $("<button>").addClass("btn recipe-button waves-effect waves-light").text("Click to View Directions!");
-                var nextButtonEl = $("<button>").addClass("btn next-button waves-effect waves-light").text("Next");
+            // $(document).on('click', '.next-button', function (event) {
+            //     recipeEl.empty();
+            //     randomIndex++;
+            //     // create content again
+            //     var cardImgEl = $("<div>");
+            //     cardImgEl.addClass("card-image");
+            //     var img = $("<img>");
+            //     //   Grabbing random response hit and adding img link to image element
+            //     img.attr("src", response.hits[randomIndex].recipe.image);
+            //     var title = $("<span>");
+            //     title.addClass("card-title");
+            //     title.text(response.hits[randomIndex].recipe.label);
+            //     //   Grabbing random response hit and adding recipe name as title to img element
+            //     cardImgEl.append(img).append(title);
+            //     recipeEl.append(cardImgEl);
+            //     var cardContentEl = $("<div>");
+            //     var ingredientEl = $("<ul>");
+            //     cardContentEl.addClass("card-content");
+            //     // creating element to store health label
+            //     var healthLabelList = $("<div>").addClass("health-label");
+            //     // element to store calories
+            //     var caloriesEl = $("<div>").addClass("calories-text");
+            //     caloriesEl.text(" Total Calories per Serving: " + Math.floor(response.hits[randomIndex].recipe.calories / response.hits[randomIndex].recipe.yield));
+            //     // printing health label to card
+            //     healthLabelList.text(response.hits[randomIndex].recipe.healthLabels);
+            //     cardContentEl.append(healthLabelList);
+            //     // print calories to card
+            //     cardContentEl.append(caloriesEl);
+            //     cardContentEl.append(cartButtonEl);
+            //     // printing ingredient to card
+            //     cardContentEl.append(ingredientEl);
 
-                cardContentEl.append(recipebtn);
-                cardContentEl.append(nextButtonEl);
-                recipeEl.append(cardContentEl);
-                var forList = response.hits[randomIndex].recipe.ingredients;
-                console.log(forList);
-                //     //  list and forloop for ingredients 
-                for (var i = 0; i < forList.length; i++) {
-                    var ingredientList = $("<li>");
-                    console.log(response.hits[randomIndex].recipe.ingredients[i].text);
-                    ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
-                    ingredientEl.append(ingredientList);
-                    console.log(ingredientList[i]);
-                };
-                // on click wil take you to a page with directions
-                $(document).on('click', '.recipe-button', function () {
-                    window.open(response.hits[randomIndex].recipe.url);
-                });
-            });
-            var forList = response.hits[randomIndex].recipe.ingredients;
-            console.log(forList);
-            //     //  list and forloop for ingredients 
-            for (var i = 0; i < forList.length; i++) {
-                var ingredientList = $("<li>");
-                console.log(response.hits[randomIndex].recipe.ingredients[i].text);
-                recipeIngre.push(response.hits[randomIndex].recipe.ingredients[i].text);
-                ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
-                ingredientEl.append(ingredientList);
-                //calledIngredientlist = window.localStorage.ingredientList( ,, );
-                //we need to make a variable in global area "var = calledIngredientlist"
-                // then we have access to it grab it by using "let page" line 85
-            }
+
+            //     cardContentEl.append(recipebtn);
+            //     cardContentEl.append(nextButtonEl);
+            //     recipeEl.append(cardContentEl);
+            //     var forList = response.hits[randomIndex].recipe.ingredients;
+            //     console.log(forList);
+            //     //     //  list and forloop for ingredients 
+            //     for (var i = 0; i < forList.length; i++) {
+            //         var ingredientList = $("<li>");
+            //         console.log(response.hits[randomIndex].recipe.ingredients[i].text);
+            //         ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
+            //         ingredientEl.append(ingredientList);
+            //         console.log(ingredientList[i]);
+            //     };
+            //     // on click wil take you to a page with directions
+            //     $(document).on('click', '.recipe-button', function () {
+            //         window.open(response.hits[randomIndex].recipe.url);
+            //     });
+            // });
+            // var forList = response.hits[randomIndex].recipe.ingredients;
+            // console.log(forList);
+            // //     //  list and forloop for ingredients 
+            // for (var i = 0; i < forList.length; i++) {
+            //     var ingredientList = $("<li>");
+            //     console.log(response.hits[randomIndex].recipe.ingredients[i].text);
+            //     recipeIngre.push(response.hits[randomIndex].recipe.ingredients[i].text);
+            //     ingredientList.text(response.hits[randomIndex].recipe.ingredients[i].text);
+            //     ingredientEl.append(ingredientList);
+            //     //calledIngredientlist = window.localStorage.ingredientList( ,, );
+            //     //we need to make a variable in global area "var = calledIngredientlist"
+            //     // then we have access to it grab it by using "let page" line 85
+            // }
             var shoppingCartList = localStorage.setItem("ingredients", JSON.stringify(recipeIngre));
         });
     };
